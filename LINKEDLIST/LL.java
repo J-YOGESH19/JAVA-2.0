@@ -33,7 +33,21 @@ public void display(){
   }
 
 
-//
+//Insert at the end
+ public void inserEnd(int val){
+  if(tail == null){
+    insertFirst(val);
+    return ;
+  }
+
+  Node node = new Node(val);
+  tail.next = node;
+  tail = node;
+  size += 1;
+
+
+
+ }
 
   private class Node{
 
