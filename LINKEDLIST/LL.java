@@ -49,6 +49,47 @@ public void display(){
 
  }
 
+//Insert at some specific index 
+public void insert(int val , int index){
+  if(index == 0){
+    insertFirst(val);
+    return;
+  }
+
+  if(index == size){
+    inserEnd(val);
+    return ;
+  }
+
+  Node temp = head;
+  for(int i = 1 ; i < index ; i++){
+    temp  = temp.next;
+
+  }
+
+  Node node = new Node(val, temp.next );
+  temp.next = node;
+  size ++;
+}
+
+//delete at first 
+public int deletefirst(){
+
+  int val = head.value;
+  head = head.next;
+  size--;
+
+  if(head == null){ //in this condition suppose their is one element  in the linked list so we can prmote the head pointer to head.next which is null and tail still pointing on that so tail == null
+    tail = null;
+  }
+  
+  return val;
+
+}
+
+//
+
+
   private class Node{
 
     private int value;
