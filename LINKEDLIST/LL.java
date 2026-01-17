@@ -87,7 +87,30 @@ public int deletefirst(){
 
 }
 
-//
+//delete at end
+public int deleteLast(){
+  if(head.next == null){
+    int val = head.value;
+    head = null;
+    tail =null;
+    size = 0;
+    return val;
+  }
+
+  Node temp = head;
+
+  //to reach second last 
+  while(temp.next != tail){
+    temp = temp.next ;
+  }
+
+  int val = tail.value;
+  tail = temp;
+  tail.next = null;
+  size--;
+
+  return val;
+}
 
 
   private class Node{
