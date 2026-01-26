@@ -2,7 +2,7 @@ package DOUBLYLINKEDLIST;
 
 public class DLL {
 
-  Node head ; 
+  private Node head ; 
 
 
 
@@ -25,13 +25,47 @@ public class DLL {
   public void display(){
     Node node = head ; //we cant move head because it will alter the value of the dll 
     while(node != null){
-      System.out.println(node.val + " -> ");
+      System.out.print(node.val + " -> ");
       node =node.next;
     }
 
     System.out.println();
   }
 
+//display in reverse 
+  //to diaply in reverse we have to go to the last node 
+
+  public void displayrev(){
+    Node node = head ;
+
+    while(node != null & node.next != null){
+      node = node.next ;
+    }
+
+    while (node!= null){
+      System.out.print(node.val + " -> ");
+      node = node.prev;
+    }
+
+    System.out.println();
+  }
+
+  public void insertLast(int val) {
+    Node node = new Node(val);
+
+    if (head == null) {
+        head = node;
+        return;
+    }
+
+    Node temp = head;
+    while (temp.next != null) {
+        temp = temp.next;
+    }
+
+    temp.next = node;
+    node.prev = temp;
+}
 
 
 
