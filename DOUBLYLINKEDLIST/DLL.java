@@ -50,6 +50,8 @@ public class DLL {
     System.out.println();
   }
 
+
+  //insert at last 
   public void insertLast(int val) {
     Node node = new Node(val);
 
@@ -65,6 +67,38 @@ public class DLL {
 
     temp.next = node;
     node.prev = temp;
+}
+
+//insert at particular position 
+
+public void insertAt(int index , int val){
+  
+  if(index == 0){
+    insertFirst(val);
+    return ;
+  }
+
+  Node temp = head ; 
+
+  for (int i = 1; i < index ; i++){
+    temp = temp.next ;
+
+    if(temp == null){
+      System.out.println("Invalid index");
+      return ; 
+    }
+  }
+
+  Node node = new Node(val);
+
+  node.next = temp.next ;
+  node.prev = temp;
+
+  if(temp.next != null){
+    temp.next.prev = node;
+  }
+
+  temp.next = node;
 }
 
 
